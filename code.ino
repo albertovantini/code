@@ -1,5 +1,5 @@
 int PIN_P = A0;
-int ValoreB = 9;
+int PIN_B = 9;
 int ValorePrecedente = -1;
 int potenziometro;
 int potenziometro_m;
@@ -16,13 +16,13 @@ int C_2 = 8;
 int D_2 = 10;
 
 int decine;
-int unità;
+int unita;
 
 float Tensione;
 
 void setup() {
     pinMode(PIN_P, INPUT);
-    pinMode(ValoreB, OUTPUT);
+    pinMode(PIN_B, OUTPUT);
     Serial.begin(9600);
 }
 
@@ -30,7 +30,7 @@ void loop() {
     // Lettura del valorer del potenziometro
     potenziometro = analogRead(PIN_P);
     potenziometro_m = map(potenziometro, 0, 1023, 0, 255);
-    analogWrite(ValoreB, potenziometro_m);
+    analogWrite(PIN_B, potenziometro_m);
 
     // Calcolo della tensione:
     Tensione = potenziometro / 1023.0 * 5.0;
@@ -39,7 +39,8 @@ void loop() {
     Duty_cycle = (Tensione / 5) * 100;
 
     // Stampa dei valori solo se variano:
-    if (potenziometro != ValorePrecedente) {
+    if (potenziometro < ValorePrecedente - 10 ||
+        potenziometro > ValorePrecedente + 10) {
         Serial.print("Valore di resistenza del Potenziometro:     ");
         Serial.println(potenziometro);
         Serial.print("Valore della Tensione:                      ");
@@ -51,135 +52,118 @@ void loop() {
     }
 
     decine = Duty_cycle / 10;
-    unità = Duty_cycle % 10;
-
+    unita = Duty_cycle % 10;
     switch (decine) {
         case 1:
-            digitalWrite(A1, LOW);   // A = 0
-            digitalWrite(B1, HIGH);  // B = 1
-            digitalWrite(C1, LOW);   // C = 0
-            digitalWrite(D1, LOW);   // D = 0
+            digitalWrite(A_1, LOW);
+            digitalWrite(B_1, HIGH);
+            digitalWrite(C_1, LOW);
+            digitalWrite(D_1, LOW);
             break;
-
         case 2:
-            digitalWrite(A1, HIGH);  // A = 1
-            digitalWrite(B1, HIGH);  // B = 1
-            digitalWrite(C1, LOW);   // C = 0
-            digitalWrite(D1, LOW);   // D = 0
+            digitalWrite(A_1, HIGH);
+            digitalWrite(B_1, HIGH);
+            digitalWrite(C_1, LOW);
+            digitalWrite(D_1, LOW);
             break;
-
         case 3:
-            digitalWrite(A1, LOW);   // A = 0
-            digitalWrite(B1, HIGH);  // B = 1
-            digitalWrite(C1, HIGH);  // C = 1
-            digitalWrite(D1, LOW);   // D = 0
+            digitalWrite(A_1, LOW);
+            digitalWrite(B_1, HIGH);
+            digitalWrite(C_1, HIGH);
+            digitalWrite(D_1, LOW);
             break;
-
         case 4:
-            digitalWrite(A1, HIGH);  // A = 1
-            digitalWrite(B1, LOW);   // B = 0
-            digitalWrite(C1, HIGH);  // C = 1
-            digitalWrite(D1, LOW);   // D = 0
+            digitalWrite(A_1, HIGH);
+            digitalWrite(B_1, LOW);
+            digitalWrite(C_1, HIGH);
+            digitalWrite(D_1, LOW);
             break;
-
         case 5:
-            digitalWrite(A1, LOW);   // A = 0
-            digitalWrite(B1, LOW);   // B = 0
-            digitalWrite(C1, HIGH);  // C = 1
-            digitalWrite(D1, LOW);   // D = 0
+            digitalWrite(A_1, LOW);
+            digitalWrite(B_1, LOW);
+            digitalWrite(C_1, HIGH);
+            digitalWrite(D_1, LOW);
             break;
-
         case 6:
-            digitalWrite(A1, HIGH);  // A = 1
-            digitalWrite(B1, LOW);   // B = 0
-            digitalWrite(C1, LOW);   // C = 0
-            digitalWrite(D1, HIGH);  // D = 1
+            digitalWrite(A_1, HIGH);
+            digitalWrite(B_1, LOW);
+            digitalWrite(C_1, LOW);
+            digitalWrite(D_1, HIGH);
             break;
-
         case 7:
-            digitalWrite(A1, LOW);   // A = 0
-            digitalWrite(B1, HIGH);  // B = 1
-            digitalWrite(C1, HIGH);  // C = 1
-            digitalWrite(D1, HIGH);  // D = 1
+            digitalWrite(A_1, LOW);
+            digitalWrite(B_1, HIGH);
+            digitalWrite(C_1, HIGH);
+            digitalWrite(D_1, HIGH);
             break;
-
         case 8:
-            digitalWrite(A1, HIGH);  // A = 1
-            digitalWrite(B1, HIGH);  // B = 1
-            digitalWrite(C1, HIGH);  // C = 1
-            digitalWrite(D1, HIGH);  // D = 1
+            digitalWrite(A_1, HIGH);
+            digitalWrite(B_1, HIGH);
+            digitalWrite(C_1, HIGH);
+            digitalWrite(D_1, HIGH);
             break;
-
         case 9:
-            digitalWrite(A1, LOW);   // A = 0
-            digitalWrite(B1, LOW);   // B = 0
-            digitalWrite(C1, HIGH);  // C = 1
-            digitalWrite(D1, HIGH);  // D = 1
+            digitalWrite(A_1, LOW);
+            digitalWrite(B_1, LOW);
+            digitalWrite(C_1, HIGH);
+            digitalWrite(D_1, HIGH);
             break;
     }
 
-    switch (unità) {
+    switch (unita) {
         case 1:
-            digitalWrite(A2, LOW);   // A = 0
-            digitalWrite(B2, HIGH);  // B = 1
-            digitalWrite(C2, LOW);   // C = 0
-            digitalWrite(D2, LOW);   // D = 0
+            digitalWrite(A_2, LOW);
+            digitalWrite(B_2, HIGH);
+            digitalWrite(C_2, LOW);
+            digitalWrite(D_2, LOW);
             break;
-
         case 2:
-            digitalWrite(A2, HIGH);  // A = 1
-            digitalWrite(B2, HIGH);  // B = 1
-            digitalWrite(C2, LOW);   // C = 0
-            digitalWrite(D2, LOW);   // D = 0
+            digitalWrite(A_2, HIGH);
+            digitalWrite(B_2, HIGH);
+            digitalWrite(C_2, LOW);
+            digitalWrite(D_2, LOW);
             break;
-
         case 3:
-            digitalWrite(A2, LOW);   // A = 0
-            digitalWrite(B2, HIGH);  // B = 1
-            digitalWrite(C2, HIGH);  // C = 1
-            digitalWrite(D2, LOW);   // D = 0
+            digitalWrite(A_2, LOW);
+            digitalWrite(B_2, HIGH);
+            digitalWrite(C_2, HIGH);
+            digitalWrite(D_2, LOW);
             break;
-
         case 4:
-            digitalWrite(A2, HIGH);  // A = 1
-            digitalWrite(B2, LOW);   // B = 0
-            digitalWrite(C2, HIGH);  // C = 1
-            digitalWrite(D2, LOW);   // D = 0
+            digitalWrite(A_2, HIGH);
+            digitalWrite(B_2, LOW);
+            digitalWrite(C_2, HIGH);
+            digitalWrite(D_2, LOW);
             break;
-
         case 5:
-            digitalWrite(A2, LOW);   // A = 0
-            digitalWrite(B2, LOW);   // B = 0
-            digitalWrite(C2, HIGH);  // C = 1
-            digitalWrite(D2, LOW);   // D = 0
+            digitalWrite(A_2, LOW);
+            digitalWrite(B_2, LOW);
+            digitalWrite(C_2, HIGH);
+            digitalWrite(D_2, LOW);
             break;
-
         case 6:
-            digitalWrite(A2, HIGH);  // A = 1
-            digitalWrite(B2, LOW);   // B = 0
-            digitalWrite(C2, LOW);   // C = 0
-            digitalWrite(D2, HIGH);  // D = 1
+            digitalWrite(A_2, HIGH);
+            digitalWrite(B_2, LOW);
+            digitalWrite(C_2, LOW);
+            digitalWrite(D_2, HIGH);
             break;
-
         case 7:
-            digitalWrite(A2, LOW);   // A = 0
-            digitalWrite(B2, HIGH);  // B = 1
-            digitalWrite(C2, HIGH);  // C = 1
-            digitalWrite(D2, HIGH);  // D = 1
+            digitalWrite(A_2, LOW);
+            digitalWrite(B_2, HIGH);
+            digitalWrite(C_2, HIGH);
+            digitalWrite(D_2, HIGH);
             break;
-
         case 8:
-            digitalWrite(A2, HIGH);  // A = 1
-            digitalWrite(B2, HIGH);  // B = 1
-            digitalWrite(C2, HIGH);  // C = 1
-            digitalWrite(D2, HIGH);  // D = 1
+            digitalWrite(A_2, HIGH);
+            digitalWrite(B_2, HIGH);
+            digitalWrite(C_2, HIGH);
+            digitalWrite(D_2, HIGH);
             break;
-
         case 9:
-            digitalWrite(A2, LOW);   // A = 0
-            digitalWrite(B2, LOW);   // B = 0
-            digitalWrite(C2, HIGH);  // C = 1
-            digitalWrite(D2, HIGH);  // D = 1
+            digitalWrite(A_2, LOW);
+            digitalWrite(B_2, LOW);
+            digitalWrite(C_2, HIGH);
+            digitalWrite(D_2, HIGH);
             break;
     }
 }

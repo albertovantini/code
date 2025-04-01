@@ -5,15 +5,15 @@ int potenziometro;
 int potenziometro_m;
 int Duty_cycle;
 
-int A1 = 2;
-int B1 = 3;
-int C1 = 4;
-int D1 = 5;
+int A_1 = 2;
+int B_1 = 3;
+int C_1 = 4;
+int D_1 = 5;
 
-int A2 = 6;
-int B2 = 7;
-int C2 = 8;
-int D2 = 10;
+int A_2 = 6;
+int B_2 = 7;
+int C_2 = 8;
+int D_2 = 10;
 
 int decine;
 int unità;

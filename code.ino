@@ -65,63 +65,63 @@ void loop() {
     unita = Duty_cycle % 10;
     switch (decine) {
         case 0:
-            digitalWrite(A_2, LOW);
-            digitalWrite(B_2, LOW);
-            digitalWrite(C_2, LOW);
-            digitalWrite(D_2, LOW);
+            digitalWrite(A_1, LOW);
+            digitalWrite(B_1, LOW);
+            digitalWrite(C_1, LOW);
+            digitalWrite(D_1, LOW);
             break;
         case 1:
-            digitalWrite(A_1, LOW);
-            digitalWrite(B_1, HIGH);
+            digitalWrite(A_1, HIGH);
+            digitalWrite(B_1, LOW);
             digitalWrite(C_1, LOW);
             digitalWrite(D_1, LOW);
             break;
         case 2:
-            digitalWrite(A_1, HIGH);
+            digitalWrite(A_1, LOW);
             digitalWrite(B_1, HIGH);
             digitalWrite(C_1, LOW);
             digitalWrite(D_1, LOW);
             break;
         case 3:
-            digitalWrite(A_1, LOW);
+            digitalWrite(A_1, HIGH);
             digitalWrite(B_1, HIGH);
-            digitalWrite(C_1, HIGH);
+            digitalWrite(C_1, LOW);
             digitalWrite(D_1, LOW);
             break;
         case 4:
-            digitalWrite(A_1, HIGH);
+            digitalWrite(A_1, LOW);
             digitalWrite(B_1, LOW);
             digitalWrite(C_1, HIGH);
             digitalWrite(D_1, LOW);
             break;
         case 5:
-            digitalWrite(A_1, LOW);
+            digitalWrite(A_1, HIGH);
             digitalWrite(B_1, LOW);
             digitalWrite(C_1, HIGH);
             digitalWrite(D_1, LOW);
             break;
         case 6:
+            digitalWrite(A_1, LOW);
+            digitalWrite(B_1, HIGH);
+            digitalWrite(C_1, HIGH);
+            digitalWrite(D_1, LOW);
+            break;
+        case 7:
             digitalWrite(A_1, HIGH);
+            digitalWrite(B_1, HIGH);
+            digitalWrite(C_1, HIGH);
+            digitalWrite(D_1, LOW);
+            break;
+        case 8:
+            digitalWrite(A_1, LOW);
             digitalWrite(B_1, LOW);
             digitalWrite(C_1, LOW);
             digitalWrite(D_1, HIGH);
             break;
-        case 7:
-            digitalWrite(A_1, LOW);
-            digitalWrite(B_1, HIGH);
-            digitalWrite(C_1, HIGH);
-            digitalWrite(D_1, HIGH);
-            break;
-        case 8:
-            digitalWrite(A_1, HIGH);
-            digitalWrite(B_1, HIGH);
-            digitalWrite(C_1, HIGH);
-            digitalWrite(D_1, HIGH);
-            break;
         case 9:
-            digitalWrite(A_1, LOW);
+            digitalWrite(A_1, HIGH);
             digitalWrite(B_1, LOW);
-            digitalWrite(C_1, HIGH);
+            digitalWrite(C_1, LOW);
             digitalWrite(D_1, HIGH);
             break;
     }
@@ -134,57 +134,57 @@ void loop() {
             digitalWrite(D_2, LOW);
             break;
         case 1:
-            digitalWrite(A_2, LOW);
-            digitalWrite(B_2, HIGH);
+            digitalWrite(A_2, HIGH);
+            digitalWrite(B_2, LOW);
             digitalWrite(C_2, LOW);
             digitalWrite(D_2, LOW);
             break;
         case 2:
-            digitalWrite(A_2, HIGH);
+            digitalWrite(A_2, LOW);
             digitalWrite(B_2, HIGH);
             digitalWrite(C_2, LOW);
             digitalWrite(D_2, LOW);
             break;
         case 3:
-            digitalWrite(A_2, LOW);
+            digitalWrite(A_2, HIGH);
             digitalWrite(B_2, HIGH);
-            digitalWrite(C_2, HIGH);
+            digitalWrite(C_2, LOW);
             digitalWrite(D_2, LOW);
             break;
         case 4:
-            digitalWrite(A_2, HIGH);
+            digitalWrite(A_2, LOW);
             digitalWrite(B_2, LOW);
             digitalWrite(C_2, HIGH);
             digitalWrite(D_2, LOW);
             break;
         case 5:
-            digitalWrite(A_2, LOW);
+            digitalWrite(A_2, HIGH);
             digitalWrite(B_2, LOW);
             digitalWrite(C_2, HIGH);
             digitalWrite(D_2, LOW);
             break;
         case 6:
+            digitalWrite(A_2, LOW);
+            digitalWrite(B_2, HIGH);
+            digitalWrite(C_2, HIGH);
+            digitalWrite(D_2, LOW);
+            break;
+        case 7:
             digitalWrite(A_2, HIGH);
+            digitalWrite(B_2, HIGH);
+            digitalWrite(C_2, HIGH);
+            digitalWrite(D_2, LOW);
+            break;
+        case 8:
+            digitalWrite(A_2, LOW);
             digitalWrite(B_2, LOW);
             digitalWrite(C_2, LOW);
             digitalWrite(D_2, HIGH);
             break;
-        case 7:
-            digitalWrite(A_2, LOW);
-            digitalWrite(B_2, HIGH);
-            digitalWrite(C_2, HIGH);
-            digitalWrite(D_2, HIGH);
-            break;
-        case 8:
-            digitalWrite(A_2, HIGH);
-            digitalWrite(B_2, HIGH);
-            digitalWrite(C_2, HIGH);
-            digitalWrite(D_2, HIGH);
-            break;
         case 9:
-            digitalWrite(A_2, LOW);
+            digitalWrite(A_2, HIGH);
             digitalWrite(B_2, LOW);
-            digitalWrite(C_2, HIGH);
+            digitalWrite(C_2, LOW);
             digitalWrite(D_2, HIGH);
             break;
     }

@@ -23,6 +23,16 @@ float Tensione;
 void setup() {
     pinMode(PIN_P, INPUT);
     pinMode(PIN_B, OUTPUT);
+
+    pinMode(A_1, OUTPUT);
+    pinMode(B_1, OUTPUT);
+    pinMode(C_1, OUTPUT);
+    pinMode(D_1, OUTPUT);
+    pinMode(A_2, OUTPUT);
+    pinMode(B_2, OUTPUT);
+    pinMode(C_2, OUTPUT);
+    pinMode(D_2, OUTPUT);
+
     Serial.begin(9600);
 }
 
@@ -54,6 +64,12 @@ void loop() {
     decine = Duty_cycle / 10;
     unita = Duty_cycle % 10;
     switch (decine) {
+        case 0:
+            digitalWrite(A_2, LOW);
+            digitalWrite(B_2, LOW);
+            digitalWrite(C_2, LOW);
+            digitalWrite(D_2, LOW);
+            break;
         case 1:
             digitalWrite(A_1, LOW);
             digitalWrite(B_1, HIGH);
@@ -111,6 +127,12 @@ void loop() {
     }
 
     switch (unita) {
+        case 0:
+            digitalWrite(A_2, LOW);
+            digitalWrite(B_2, LOW);
+            digitalWrite(C_2, LOW);
+            digitalWrite(D_2, LOW);
+            break;
         case 1:
             digitalWrite(A_2, LOW);
             digitalWrite(B_2, HIGH);
